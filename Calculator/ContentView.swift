@@ -7,18 +7,20 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
-    //@State var displayval = "0"
-    
+    //@State
+    var displayval = "0"
+    @ObservedObject var calc = Calculator()
     var body: some View {
-        // initiate calculator
-        var calc = Calculator()
+        
         VStack {
             Spacer()
             HStack {
                 Spacer()
-                Text("0")
-                    .font(.system(size : 100))
+                Text(calc.expression)
+                    .font(.system(size: 60))
                     .multilineTextAlignment(.trailing)
                     .padding()
             }
@@ -30,15 +32,12 @@ struct ContentView: View {
                     }.modifier(ButtonLookSoft())
                     Button("7"){
                         calc.setvalueNum(input: "7")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSolid())
                     Button("4"){
                         calc.setvalueNum(input: "4")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSolid())
                     Button("1"){
                         calc.setvalueNum(input: "1")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSolid())
                     Button(" "){
                     }.modifier(ButtonLookSoft())
@@ -50,19 +49,15 @@ struct ContentView: View {
                     }.modifier(ButtonLookSoft())
                     Button("8"){
                         calc.setvalueNum(input: "8")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSolid())
                     Button("5"){
                         calc.setvalueNum(input: "5")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSolid())
                     Button("2"){
                         calc.setvalueNum(input: "2")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSolid())
                     Button("0"){
                         calc.setvalueNum(input: "0")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSolid())
                 }.frame(maxWidth: .infinity)
 
@@ -72,43 +67,33 @@ struct ContentView: View {
                     }.modifier(ButtonLookSoft())
                     Button("9"){
                         calc.setvalueNum(input: "9")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSolid())
                     Button("6"){
                         calc.setvalueNum(input: "6")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSolid())
                     Button("3"){
                         calc.setvalueNum(input: "3")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSolid())
                     Button(","){
                         calc.setvaldecimal()
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSoft())
                 }.frame(maxWidth: .infinity)
                 
                 VStack {
                     Button("/"){
                         calc.setvalueOp(input: "/")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSoft())
                     Button("x"){
                         calc.setvalueOp(input: "*")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSoft())
                     Button("-"){
                         calc.setvalueOp(input: "-")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSoft())
                     Button("+"){
                         calc.setvalueOp(input: "+")
-                        //displayval = calc.disp()
                     }.modifier(ButtonLookSoft())
                     Button("="){
                         calc.calculate()
-                        //displayval = calc.disp()
-                        //print(displayval)
                     }.modifier(ButtonLookSoft())
                 }
                 .frame(maxWidth: .infinity)

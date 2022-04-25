@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+// initiate calculator
+//var calc = Calculator()
 
 @main
 struct CalculatorApp: App {
